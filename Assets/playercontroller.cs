@@ -13,7 +13,7 @@ public class NewBehaviourScript : MonoBehaviour
     public LayerMask groundLayer;
 
     public AudioClip jump;
-    AudioSource playersfx = GetComponent<AudioSource>
+    AudioSource playersfx;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -21,6 +21,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playersfx = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,6 +44,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         // Add an upward force for jumping
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        playersfx.PlayOneShot(jump);
     }
 
     private void OnDrawGizmosSelected()
