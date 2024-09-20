@@ -18,10 +18,15 @@ public class NewBehaviourScript : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     // Start is called before the first frame update
+
+    Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playersfx = GetComponent<AudioSource>();
+
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,11 +38,17 @@ public class NewBehaviourScript : MonoBehaviour
         // Check if the player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
 
+        anim.SetFloat("Speed", Mathf.Abs(movementValueX));
+        anim.SetBool("IsOnGround", isOnGround);
+
+
         // jumping logic
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
+
+
     }
 
     private void Jump()
