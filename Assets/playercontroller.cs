@@ -4,7 +4,7 @@ using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Playercontrollerscript : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float jumpForce = 10f;
@@ -38,16 +38,13 @@ public class NewBehaviourScript : MonoBehaviour
         // Check if the player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
 
-        anim.SetFloat("Speed", Mathf.Abs(movementValueX));
-        anim.SetBool("IsOnGround", isOnGround);
-
-
         // jumping logic
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
 
+       
 
     }
 
