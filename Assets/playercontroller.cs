@@ -38,8 +38,7 @@ public class NewBehaviourScript : MonoBehaviour
         // Check if the player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
 
-        anim.SetFloat("Speed", Mathf.Abs(movementValueX));
-        anim.SetBool("IsOnGround", isOnGround);
+        
 
 
         // jumping logic
