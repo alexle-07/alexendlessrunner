@@ -38,12 +38,6 @@ public class Playercontrollerscript : MonoBehaviour
         // Check if the player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
 
-<<<<<<< HEAD
-        
-
-
-=======
->>>>>>> 79abdc6194558632e42532c3ddcd7977cbe84013
         // jumping logic
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
